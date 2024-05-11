@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "81ae555b-924d-4e91-aea0-78f90b377cf9",
+		"name": "OPERACIONES_CONSISTENTES",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7308478"
+	},
+	"item": [
+		{
+			"name": "api-envio-automatico",
+			"item": [
+				{
+					"name": "http://localhost:9080/api/registrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Gaela\",\r\n    \"descripcion\": \"Marianne\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9080/api/registrar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9080",
+							"path": [
+								"api",
+								"registrar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api-insertar-registros",
+			"item": [
+				{
+					"name": "http://localhost:9081/api/insertar-registro",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Christopher\",\r\n    \"descripcion\": \"Sanz\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:9081/api/insertar-registro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9081",
+							"path": [
+								"api",
+								"insertar-registro"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
