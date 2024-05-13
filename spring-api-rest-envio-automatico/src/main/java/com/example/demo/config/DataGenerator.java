@@ -20,7 +20,7 @@ public class DataGenerator implements CommandLineRunner {
         Faker faker = new Faker();
 
         // Generar y guardar 1000 registros ficticios
-        IntStream.range(0, 10000).forEach(i -> {
+        IntStream.range(0, 10).forEach(i -> {
             Registro registro = new Registro();
             registro.setNombre(faker.name().fullName());
             registro.setDescripcion(faker.lorem().sentence());

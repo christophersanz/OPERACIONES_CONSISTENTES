@@ -33,7 +33,7 @@ public class EnvioAutoController {
     // Endpoint para el envío automático incremental
     @Scheduled(fixedDelay = 10000) // Envía cada 10 segundos (ajusta según necesites)
     public void enviarRegistrosAutomaticamente() {
-        int pageSize = 1000; // Tamaño de cada página
+        int pageSize = 10; // Tamaño de cada página
         int pageNumber = 0; // Número de página inicial
 
         try {
@@ -63,7 +63,6 @@ public class EnvioAutoController {
                 pageNumber++; // Avanzar a la siguiente página
             }
         } catch (Exception e) {
-            // Manejo de excepciones
             System.err.println("Error al enviar los registros: " + e.getMessage());
         }
     }

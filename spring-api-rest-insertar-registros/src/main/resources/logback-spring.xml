@@ -1,0 +1,44 @@
+<configuration>
+
+    <!-- Definición de los appenders -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Appender para los registros generales -->
+    <!--<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>/app/logs/spring-api-inserta-registros.log</file>
+        <append>false</append> &lt;!&ndash; Cambiar a 'false' para crear un nuevo archivo en lugar de agregar al existente &ndash;&gt;
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>-->
+
+    <!-- Appender para los registros del controlador -->
+    <appender name="REQUESTS_REGISTRAR_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>/app/logs/requests-registrar.log</file>
+        <append>false</append> <!-- Cambiar a 'false' para crear un nuevo archivo en lugar de agregar al existente -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Definición de los loggers -->
+    <logger name="com.example.demo.config.trace.LoggingFilter" level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <!--<appender-ref ref="FILE"/>-->
+    </logger>
+
+    <logger name="com.example.demo.controller.RegistroController" level="INFO">
+        <appender-ref ref="REQUESTS_REGISTRAR_FILE"/> <!-- Solo utiliza el nuevo appender para los registros del controlador -->
+    </logger>
+
+    <!-- Nivel de log por defecto para los demás loggers -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <!--<appender-ref ref="FILE"/>-->
+    </root>
+
+</configuration>
